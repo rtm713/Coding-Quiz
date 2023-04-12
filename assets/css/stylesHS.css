@@ -1,20 +1,8 @@
 
-body {
-    text-align: center;
-}
-
-#top {
-    display: inline-flex;
-    justify-content: space-between;
-    width: 90%;
-}
-
-#hslink {
-    text-decoration: none;
-}
 
 main {
-    width: 65%;
+    text-align: center;
+    width: 40%;
     margin: auto;
     margin-top: 10%;
 }
@@ -22,10 +10,6 @@ main {
 main h2 {
     font-size: 40px;
     font-family: sans-serif;
-}
-
-main p {
-    font-size: 18px;
 }
 
 main button {
@@ -37,4 +21,15 @@ main button {
 
 main button:hover {
     background-color: rgb(183, 122, 236);
+}
+
+main li {
+    list-style: none;
+    background-color: rgb(235, 214, 255);
+    text-align: start;
+    padding: 5px;
+    padding-left: 20px;
+    margin: 5px;
+    font-family: sans-serif;
+    font-weight: 700;
 }
