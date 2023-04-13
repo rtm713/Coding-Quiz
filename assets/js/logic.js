@@ -3,6 +3,7 @@ var timer = document.querySelector('#timer');
 var intro = document.querySelector('#intro');
 var headBox = document.querySelector('#headBox');
 var optionsList = document.querySelector('#options');
+var feedback = document.querySelector('#feedback')
 
 var quizContent = [
     { 
@@ -18,6 +19,7 @@ var quizContent = [
 ];
 
 var timeLeft = 75;
+var questionNumber = 0;
 
 start.addEventListener('click', function() {
     timer.textContent = 'Time: '+ timeLeft;
@@ -37,25 +39,37 @@ start.addEventListener('click', function() {
 
 function startQuiz() {
     intro.innerHTML = "";
-    for (var i=0; i <= quizContent.length; i++) {
-        headBox.textContent = quizContent[i].question;
-        for (var i2 = 0; i2 < quizContent[i].options.length; i2++) {
-            var list = document.createElement('li');
-            list.textContent = quizContent[i].options[i2];
-            optionsList.append(list);
-        }
-        list.addEventListener('click', function() {
-            var chosen = list.value;
-            if (chosen === quizContent[i].answer) {
-                alert("this worked!");
-            }
-        });
+    for (var i=0; i < quizContent.length; i++) {
+        var curChoices = quizContent[questionNumber].options;
+        headBox.textContent = quizContent[questionNumber].question;
+
+    curChoices.forEach(function(curitem) {
+        var list = document.createElement('li');
+        list.textContent = curitem;
+        optionsList.append(list);
+        list.addEventListener('click', (checkAnswer));
+    })
     };
+
     complete();
 }
 
-function checkAnswer() {
-    optionsList.innerHTML = "";
+function checkAnswer(choice) {
+    var chosen = choice.target;
+    if (chosen.textContent == quizContent[questionNumber].answer) {
+        feedback.textContent = "Correct!";
+        main.innerHTML = "";
+    } else {
+        feedback.textContent = "Wrong!";
+        intro.innerHTML = "";
+    }
+    questionNumber++;
+
+    if (questionNumber >= quizContent.length) {
+        complete;
+    } else {
+        startQuiz();
+    }
 }
 
 function complete() {
