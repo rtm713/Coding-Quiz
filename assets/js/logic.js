@@ -3,7 +3,8 @@ var timer = document.querySelector('#timer');
 var intro = document.querySelector('#intro');
 var headBox = document.querySelector('#headBox');
 var optionsList = document.querySelector('#options');
-var feedback = document.querySelector('#feedback')
+var feedback = document.querySelector('#feedback');
+var main = document.querySelector('main');
 
 var quizContent = [
     { 
@@ -38,40 +39,40 @@ start.addEventListener('click', function() {
 });
 
 function startQuiz() {
-    intro.innerHTML = "";
-    for (var i=0; i < quizContent.length; i++) {
-        var curChoices = quizContent[questionNumber].options;
-        headBox.textContent = quizContent[questionNumber].question;
+    main.innerHTML = "";
+    var newUL = document.createElement("ul");
+    
+    var curChoices = quizContent[questionNumber].options;
+    main.textContent = quizContent[questionNumber].question;
 
     curChoices.forEach(function(curitem) {
         var list = document.createElement('li');
         list.textContent = curitem;
-        optionsList.append(list);
+        main.append(newUL);
+        newUL.append(list);
         list.addEventListener('click', (checkAnswer));
-    })
+    });
+
+    if (questionNumber >= quizContent.length) {
+        complete();
+    } else {
     };
 
-    complete();
 }
 
 function checkAnswer(choice) {
     var chosen = choice.target;
     if (chosen.textContent == quizContent[questionNumber].answer) {
         feedback.textContent = "Correct!";
-        main.innerHTML = "";
     } else {
         feedback.textContent = "Wrong!";
-        intro.innerHTML = "";
     }
     questionNumber++;
 
-    if (questionNumber >= quizContent.length) {
-        complete;
-    } else {
-        startQuiz();
-    }
+    startQuiz();
 }
 
 function complete() {
     timer.textContent = 'Finished!';
+    main.innerHTML = "";
 }
