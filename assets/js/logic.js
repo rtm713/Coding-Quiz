@@ -114,6 +114,18 @@ function complete() {
 
     submitButton.addEventListener('click', function() {
         var initials = initialInput.value;
+        var saveScore = {
+            saveInitials: initials,
+            saveScore: score,
+        };
+
+        var checkScores = JSON.parse(localStorage.getItem('user'));
+        if (checkScores === null) {
+            localStorage.setItem('user', JSON.stringify(saveScore));
+        } else {
+        }
+
+
         window.location.replace("./highScores.html");
     });
 };
