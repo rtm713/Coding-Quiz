@@ -27,6 +27,8 @@ main {
     width: 65%;
     margin: auto;
     margin-top: 10%;
+    font-size: 40px;
+    font-family: sans-serif;
 }
 
 main h2 {

@@ -57,8 +57,7 @@ function startQuiz() {
         complete();
     } else {
     };
-
-}
+};
 
 function checkAnswer(choice) {
     var chosen = choice.target;
@@ -70,9 +69,9 @@ function checkAnswer(choice) {
     questionNumber++;
 
     startQuiz();
-}
+};
 
 function complete() {
     timer.textContent = 'Finished!';
     main.innerHTML = "";
-}
+};
