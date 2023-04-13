@@ -17,6 +17,21 @@ var quizContent = [
         options: ["Quotes", "Curly Brackets", "Parentheses", "Square Brackets"],
         answer: "Parentheses"
     },
+    {
+        question: "Arrays in Javascript can be used to store ____.",
+        options: ["Numbers and Strings", "Other Arrays", "Booleans", "All of the above"],
+        answer: "All of the above"
+    },
+    {
+        question: "String values must be enclosed within ____ when being assigned to variables.",
+        options: ["Commas", "Curly Brackets", "Quotes", "Parenthesis"],
+        answer: "Quotes"
+    },
+    {
+        question: "A very useful tool for used during development and debugging for printing content to the debugger is:",
+        options: ["Javascript", "Terminal / Bash", "For loops", "Console log"],
+        answer: "Console log"
+    },
 ];
 
 var timeLeft = 75;
@@ -60,6 +75,7 @@ function checkAnswer(choice) {
         feedback.textContent = "Correct!";
     } else {
         feedback.textContent = "Wrong!";
+        timeLeft = timeLeft - 10;
     }
     questionNumber++;
     
@@ -71,8 +87,11 @@ function checkAnswer(choice) {
 };
 
 function complete() {
-    timeLeft = 0;
+    var score = timeLeft;
     timer.textContent = 'Finished!';
     main.innerHTML = "";
-    feedback.textContent = "";
+    main.textContent = "All Done!";
+    var finalScore = document.createElement('p');
+    main.append(finalScore);
+    finalScore.textContent = "Congrats! Your final score is " + score;
 };
