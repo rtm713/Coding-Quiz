@@ -52,11 +52,6 @@ function startQuiz() {
         newUL.append(list);
         list.addEventListener('click', (checkAnswer));
     });
-
-    if (questionNumber >= quizContent.length) {
-        complete();
-    } else {
-    };
 };
 
 function checkAnswer(choice) {
@@ -67,11 +62,17 @@ function checkAnswer(choice) {
         feedback.textContent = "Wrong!";
     }
     questionNumber++;
-
+    
+    if (questionNumber >= quizContent.length) {
+        complete();
+    } else {
     startQuiz();
+    };
 };
 
 function complete() {
+    timeLeft = 0;
     timer.textContent = 'Finished!';
     main.innerHTML = "";
+    feedback.textContent = "";
 };
