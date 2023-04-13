@@ -36,6 +36,7 @@ var quizContent = [
 
 var timeLeft = 75;
 var questionNumber = 0;
+var quizEnd = 0;
 
 start.addEventListener('click', function() {
     timer.textContent = 'Time: '+ timeLeft;
@@ -44,7 +45,7 @@ start.addEventListener('click', function() {
             timeleft = timeLeft--;
             timer.textContent = 'Time: '+ timeLeft;
     
-            if (timeLeft <= 0) {
+            if (timeLeft <= 0 || quizEnd === 1) {
                 clearInterval(timeCheck);
                 complete();
             }
@@ -88,10 +89,31 @@ function checkAnswer(choice) {
 
 function complete() {
     var score = timeLeft;
+    quizEnd++;
     timer.textContent = 'Finished!';
     main.innerHTML = "";
     main.textContent = "All Done!";
     var finalScore = document.createElement('p');
     main.append(finalScore);
     finalScore.textContent = "Congrats! Your final score is " + score;
+
+    var submitDiv = document.createElement('div');
+    submitDiv.setAttribute('id','subDiv');
+    main.append(submitDiv);
+    var initialLabel = document.createElement('label');
+    initialLabel.setAttribute('for','initInput');
+    initialLabel.textContent = "Enter your initials: "
+    submitDiv.append(initialLabel);
+    var initialInput = document.createElement('input');
+    initialInput.setAttribute('name', 'initInput');
+    submitDiv.append(initialInput);
+    var submitButton = document.createElement('button');
+    submitButton.setAttribute('type','submit');
+    submitButton.textContent = "Submit";
+    submitDiv.append(submitButton);
+
+    submitButton.addEventListener('click', function() {
+        var initials = initialInput.value;
+        window.location.replace("./highScores.html");
+    });
 };

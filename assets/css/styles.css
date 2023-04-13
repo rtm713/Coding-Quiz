@@ -66,3 +66,16 @@ li {
 li:hover {
     background-color: rgb(183, 122, 236);
 }
+
+label {
+    font-size: 18px;
+}
+
+#subDiv {
+    margin-bottom: 20px;
+}
+
+#subDiv button {
+    padding: 2px;
+    margin-left: 5px;
+}
