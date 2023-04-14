@@ -13,7 +13,7 @@ var score = JSON.parse(localStorage.getItem('user'));
 
 
 backButton.addEventListener('click', function() {
-    window.location.replace('../../index.html');
+    window.location.replace('./index.html');
 });
 
 clearButton.addEventListener('click', function() {
