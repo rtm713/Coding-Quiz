@@ -1,6 +1,7 @@
 # Coding-Quiz
 
 ## Description
+A simple Javascript quiz with a time limit. Your score is equal to how much time you have left at the end so be quick!
 
 ## User Story 
 ```
@@ -26,5 +27,8 @@ THEN I can save my initials and score
 
 ## Project URL
 
+https://rtm713.github.io/Coding-Quiz/
 
 ## Project Screenshot
+
+![Alt text](./assets/images/Screenshot%202023-04-13%20222913.png)
