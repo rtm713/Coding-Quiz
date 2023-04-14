@@ -126,6 +126,6 @@ function complete() {
         }
 
 
-        window.location.replace("./highScores.html");
+        window.location.replace("./highscores.html");
     });
 };
