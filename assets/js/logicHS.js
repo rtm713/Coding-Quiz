@@ -6,9 +6,11 @@ var scoresUL = document.querySelector('#scores');
 
 var score = JSON.parse(localStorage.getItem('user'));
 
+if (score != null) {
     var scoreLI = document.createElement('li');
     scoreLI.textContent = score.saveInitials + "  " + score.saveScore;
     scoresUL.append(scoreLI);
+};
 
 
 
