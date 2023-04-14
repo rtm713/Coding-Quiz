@@ -20,9 +20,9 @@ if (checkScores != null) {
 
 
 
-backButton.addEventListener('click', function() {
-    window.location.replace('../../index.html');
-});
+// backButton.addEventListener('click', function() {
+//     window.location.replace('../../index.html');
+// });
 
 clearButton.addEventListener('click', function() {
     localStorage.clear();
