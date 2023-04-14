@@ -4,12 +4,23 @@ var clearButton = document.querySelector('#clear');
 var scoresUL = document.querySelector('#scores');
 
 
-var score = JSON.parse(localStorage.getItem('user'));
+// var score = JSON.parse(localStorage.getItem('user'));
+var checkScores = JSON.parse(localStorage.getItem("checkScores"));
 
-if (score != null) {
-    var scoreLI = document.createElement('li');
-    scoreLI.textContent = score.saveInitials + "  " + score.saveScore;
-    scoresUL.append(scoreLI);
+
+if (checkScores != null) {
+
+    for (var i = 0; i < checkScores.length; i++) {
+
+        var scoreLI = document.createElement("li");
+        scoreLI.textContent = checkScores[i].saveInitials + "  " + checkScores[i].saveScore;
+        scoresUL.appendChild(scoreLI);
+
+    }
+
+    // var scoreLI = document.createElement('li');
+    // scoreLI.textContent = score.saveInitials + "  " + score.saveScore;
+    // scoresUL.append(scoreLI);
 };
 
 
@@ -20,5 +31,5 @@ backButton.addEventListener('click', function() {
 
 clearButton.addEventListener('click', function() {
     localStorage.clear();
-    location.reload;
+    location.reload();
 });

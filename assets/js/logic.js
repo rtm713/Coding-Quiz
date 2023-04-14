@@ -119,12 +119,15 @@ function complete() {
             saveScore: score,
         };
 
-        var checkScores = JSON.parse(localStorage.getItem('user'));
+        var checkScores = localStorage.getItem('checkScores');
         if (checkScores === null) {
-            localStorage.setItem('user', JSON.stringify(saveScore));
+            checkScores = [];
         } else {
+            checkScores = JSON.parse(checkScores)
         }
-
+        checkScores.push(saveScore);
+        var thisScore = JSON.stringify(checkScores);
+        localStorage.setItem("checkScores", thisScore);
 
         window.location.replace("./highscores.html");
     });
